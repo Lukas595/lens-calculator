@@ -1,0 +1,9 @@
+.resultFOV {
+    font-weight: bolder;
+    font-size: 3rem;
+    color: #0095db;
+}
+
+.resultFOV::after {
+    content: '°';
+}
