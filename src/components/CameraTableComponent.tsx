@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { TableContainer, Paper, Table, TableHead, TableCell, TableBody, TableRow, List, Box, Grid, Toolbar, Typography, IconButton, Collapse } from '@material-ui/core';
+import { TableContainer, Paper, Table, TableHead, TableCell, TableBody, TableRow, Box, Grid, Typography, IconButton, Collapse } from '@material-ui/core';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 
@@ -10,24 +10,30 @@ class CameraTableComponent extends Component <{cameras: any[]}> {
 
             <TableContainer component={Paper} aria-label="simple table">
                 <Box m={3}>
-                    <Typography variant="h4">Camera Kits</Typography>
+                    <Typography variant="h4">Suitable Camera Kits</Typography>
                 </Box>
-                <Table>
-                    <TableHead>
-                        <TableRow>
-                            <TableCell />
-                            <TableCell>Name</TableCell>
-                            <TableCell>Resolution</TableCell>
-                            <TableCell>Lens</TableCell>
-                        </TableRow>
 
-                    </TableHead>
-                    <TableBody>
-                        { this.props.cameras.map((cam) => (
-                            <CameraRowComponent camera={cam} />
-                        ))}
-                    </TableBody>
-                </Table>
+                {
+                    this.props.cameras.length > 0 ?
+                    <Table>
+                        <TableHead>
+                            <TableRow>
+                                <TableCell />
+                                <TableCell>Name</TableCell>
+                                <TableCell>Resolution</TableCell>
+                                <TableCell>Lens</TableCell>
+                            </TableRow>
+
+                        </TableHead>
+                        <TableBody>
+                            { this.props.cameras.map((cam) => (
+                                <CameraRowComponent camera={cam} />
+                            ))}
+                        </TableBody>
+                    </Table>
+                : <Box color="info.main" fontWeight="bold" m={3}>No Suitable Cameras found</Box>
+                }
+                
             </TableContainer>
         );
     };
@@ -60,7 +66,7 @@ class CameraRowComponent extends Component <{camera: any}, {open: boolean}> {
         }
       
         return (
-            <React.Fragment>
+            <React.Fragment key={camera.name}>
                 <TableRow>
                     <TableCell>
                         <IconButton onClick={this.toogle}>
@@ -96,7 +102,7 @@ class CameraRowComponent extends Component <{camera: any}, {open: boolean}> {
                                             <TableCell>{camera.sensor.size}</TableCell>
                                             <TableCell>{camera.sensor.pixel}</TableCell>
                                             <TableCell>{camera.multicam}</TableCell>
-                                            <TableCell>{camera.interface}</TableCell>
+                                            <TableCell>{interfaceCell(camera.interface)}</TableCell>
                                         </TableRow>
                                     </TableBody>
                                 </Table>
@@ -107,6 +113,17 @@ class CameraRowComponent extends Component <{camera: any}, {open: boolean}> {
             </React.Fragment>
         );
     }
+}
+
+function interfaceCell(interfaceInfo: any) {
+    return (
+        <Box>
+            {interfaceInfo.cable} 
+            {interfaceInfo.bandwidth.length > 0 && 
+                <span><br/>{interfaceInfo.bandwidth}</span>
+            }
+        </Box>
+    )
 }
 
 function fixedFocalLength(lens: any) {

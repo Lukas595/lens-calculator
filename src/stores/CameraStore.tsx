@@ -19,7 +19,10 @@ export default class CameraStore {
         verticalFov: 60,
       }],
       multicam: "Yes",
-      interface: "Cat5e/RJ45<br>1 GB/s"
+      interface: {
+        cable: "Cat5e/RJ45",
+        bandwidth: "1 GB/s"
+      }
     }, {
       kit: "wide-angle",
       name: "89° Wide-Angle Kit",
@@ -37,7 +40,10 @@ export default class CameraStore {
         verticalFov: 73,
       }],
       multicam: "Yes",
-      interface: "Cat5e/RJ45<br>1 GB/s"
+      interface: {
+        cable: "Cat5e/RJ45",
+        bandwidth: "1 GB/s"
+      }
     }, {
       kit: "wide-angle",
       name: "95° Hi-Res Wide-Angle Kit",
@@ -55,7 +61,10 @@ export default class CameraStore {
         verticalFov: 79,
       }],
       multicam: "Yes",
-      interface: "Cat5e/RJ45<br>1 GB/s"
+      interface: {
+        cable: "Cat5e/RJ45",
+        bandwidth: "1 GB/s"
+      }
     },{
       kit: "wide-angle",
       name: "110° Ultra Wide-Angle Kit",
@@ -73,7 +82,10 @@ export default class CameraStore {
         verticalFov: 99,
       }],
       multicam: "No",
-      interface: "Cat5e/RJ45<br>1 GB/s"
+      interface: {
+        cable: "Cat5e/RJ45",
+        bandwidth: "1 GB/s"
+      }
     },{
       kit: "wide-angle",
       name: "125° Ultra Wide-Angle Kit",
@@ -91,7 +103,10 @@ export default class CameraStore {
         verticalFov: 119,
       }],
       multicam: "No",
-      interface: "Cat5e/RJ45<br>1 GB/s"
+      interface: { 
+        cable: "Cat5e/RJ45",
+        bandwidth: "1 GB/s"
+      }
     },{
       kit: "super-hq",
       name: "Super HQ Kit",
@@ -129,7 +144,10 @@ export default class CameraStore {
         verticalFov: 12,
       }],
       multicam: "Yes",
-      interface: "Cat5e/RJ45<br>1 GB/s"
+      interface: { 
+        cable: "Cat5e/RJ45",
+        bandwidth: "1 GB/s"
+      }
     },{
       kit: "low-cost",
       name: "Varifocal Kit",
@@ -152,7 +170,10 @@ export default class CameraStore {
         verticalFov: 71,
       },
       multicam: "No",
-      interface: "Cat5e/RJ45<br>1 GB/s"
+      interface: {
+        cable: "Cat5e/RJ45",
+        bandwidth: "1 GB/s"
+      }
     },{
       kit: "low-cost",
       name: "70° USB2 Webcam",
@@ -170,7 +191,10 @@ export default class CameraStore {
         verticalFov: 40,
       }],
       multicam: "No",
-      interface: "USB 2.0"
+      interface: {
+        cable: "USB 2.0",
+        bandwidth: ""
+      }
     },{
       kit: "low-cost",
       name: "78° USB2 Webcam",
@@ -188,7 +212,10 @@ export default class CameraStore {
         verticalFov: 48,
       }],
       multicam: "No",
-      interface: "USB 2.0"
+      interface: {
+        cable: "USB 2.0",
+        bandwidth: ""
+      }
     }
     ];
 
