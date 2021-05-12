@@ -9,8 +9,8 @@ export default class Frustum {
     }
 
     updateFrustum(width: number, height: number, distance: number): void {
-        let vFovInRadians: number = Math.tanh((height / 2) / distance) * 2;
-        let hFovInRadians: number = Math.tanh((width / 2) / distance) * 2;
+        let vFovInRadians: number = Math.atan((height / 2) / distance) * 2;
+        let hFovInRadians: number = Math.atan((width / 2) / distance) * 2;
         
         this.verticalFov = (vFovInRadians * (180 / Math.PI)).toFixed();
         this.horizonzalFov = (hFovInRadians * (180 / Math.PI)).toFixed();
