@@ -1,5 +1,5 @@
 import { Box, Card, CardContent, Typography } from "@material-ui/core";
-import {Component} from "react";
+import { Component } from "react";
 
 class CameraCategoryComponent extends Component {
 

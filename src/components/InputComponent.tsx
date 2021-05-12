@@ -1,4 +1,4 @@
-import { Box, Button, Card, CardContent, FormControl, FormHelperText, Grid, Input, InputAdornment, InputLabel, TextField, Typography } from "@material-ui/core";
+import { Box, Button, Card, CardContent, Grid, InputAdornment, TextField, Typography } from "@material-ui/core";
 import React, { Component } from "react";
 
 type InputProps = {
@@ -67,7 +67,7 @@ class InputComponent extends Component <InputProps, InpusStates> {
                                     name="width"
                                     label="Width"
                                     value={this.state.width}
-                                    id="filled-start-adornment"
+                                    
                                     onChange={this.handleInputChange}
                                     InputProps={{
                                         endAdornment: <InputAdornment position="end">cm</InputAdornment>,
@@ -80,7 +80,6 @@ class InputComponent extends Component <InputProps, InpusStates> {
                                 <TextField
                                     name="height"
                                     label="Height"
-                                    id="filled-start-adornment"
                                     value={this.state.height}
                                     onChange={this.handleInputChange}
                                     InputProps={{
@@ -94,7 +93,6 @@ class InputComponent extends Component <InputProps, InpusStates> {
                                 <TextField
                                     name="distance"
                                     label="Distance"
-                                    id="filled-start-adornment"
                                     onChange={this.handleInputChange}
                                     value={this.state.distance}
                                     InputProps={{

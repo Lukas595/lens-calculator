@@ -4,39 +4,12 @@
     margin: 0 auto;
 }
 
-.header {
-    padding: 30px;
-    text-align: center;
-    background: white;
-}
-
-h1 {
+h2 {
     padding: 0;
     margin: 0;
     font-weight: bolder;
-    font-size: 64px;
+    font-size: 1rem;
     background: -webkit-linear-gradient(left, #0095db, #b8d407);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
-
-h2 {
-    text-align: center;
-}
-
-.row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-.result {
-    margin-right: 16px;
-    background: cornflowerblue;
-}
-
-.category {
-    margin-left: 16px;
-    background: chocolate;
-    flex-grow: 2;
 }

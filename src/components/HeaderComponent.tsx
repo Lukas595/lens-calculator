@@ -7,8 +7,8 @@ class HeaderComponent extends Component {
     render() {
         return (  
             <Box mb={2}>
-                <Typography variant="h1">
-                    VIOSO Camera Calibration Kit Picker
+                <Typography variant="h2">
+                    VIOSO Camera Calibration Kit finder
                 </Typography>
             </Box>
         );

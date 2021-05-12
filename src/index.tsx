@@ -13,7 +13,6 @@ import CameraStore from './stores/CameraStore';
   }
 
   function mountPage() {
-    console.log("MountPage")
     ReactDOM.render(
       <React.StrictMode>
         <App cameraStore={cameraStore}/>

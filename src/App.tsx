@@ -4,8 +4,7 @@ import HeaderComponent from './components/HeaderComponent';
 import FooterComponent from './components/FooterComponent';
 import ResultComponent from './components/ResultComponent';
 import CameraTableComponent from './components/CameraTableComponent';
-import CameraCategoryComponent from './components/CameraCategoryComponent';
-import React, { Component } from 'react';
+import { Component } from 'react';
 import Frustum from './models/Frustum';
 import CameraStore from './stores/CameraStore';
 import { Box, Container, Grid } from '@material-ui/core';
@@ -23,7 +22,7 @@ class App extends Component<AppProps, AppStates> {
   
   state: AppStates = { 
     frustum: new Frustum(),
-    cameras: this.props.cameraStore.getAll()
+    cameras: []
   };
 
   reload = (projectionSurface: ProjectionSurface) => {
@@ -38,7 +37,7 @@ class App extends Component<AppProps, AppStates> {
 
   reset = () => {
     const frustum: Frustum =  new Frustum();
-    const cameras: any[] = this.props.cameraStore.getAll()
+    const cameras: any[] = [];
 
     this.setState( { cameras, frustum } );
   }
@@ -58,13 +57,12 @@ class App extends Component<AppProps, AppStates> {
           </Grid>
 
           <Grid item xs={8}>
-            <CameraCategoryComponent />
+            <CameraTableComponent cameras={this.state.cameras} />
           </Grid>
 
           </Grid>
         </Box>
 
-        <CameraTableComponent cameras={this.state.cameras} />
 
         <FooterComponent />
 
