@@ -1,5 +1,6 @@
 import { Box, Button, Card, CardContent, Grid, InputAdornment, TextField, Typography } from "@material-ui/core";
 import React, { Component } from "react";
+import InputFormComponent from "./InputFormComponent";
 
 type InputProps = {
     onClick: (projectionSurface: ProjectionSurface) => void,
@@ -9,7 +10,8 @@ type InputProps = {
 type InpusStates = {
     width: string,
     height: string,
-    distance: string
+    distance: string,
+    errorMsg: {}
 }
 
 export type ProjectionSurface = {
@@ -23,7 +25,8 @@ class InputComponent extends Component <InputProps, InpusStates> {
     state: InpusStates = {
         width: '',
         height: '',
-        distance: ''
+        distance: '',
+        errorMsg: {}
     }
 
     handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -37,18 +40,87 @@ class InputComponent extends Component <InputProps, InpusStates> {
         this.setState({height: ''});
         this.setState({distance: ''});
 
+        this.setState({
+            errorMsg: {}
+        });
+
         this.props.onReset();
     }
 
     send = () => {
+        
+        this.setState({
+            errorMsg: {}
+        });
 
-        let projectionSurface: ProjectionSurface = {
-            width: parseFloat(this.state.width),
-            height: parseFloat(this.state.height),
-            distance: parseFloat(this.state.distance)
+        let validationError = false;
+        //validate width
+        if (!this.isNumeric(this.state.width)) {
+            validationError = true;
+            this.setState({
+                errorMsg: { width: 'Numbers only'}
+            });
         }
 
-        this.props.onClick(projectionSurface);
+        if (this.state.width.length === 0) {
+            validationError = true;
+            this.setState((prev) => ({
+                ...prev,
+                errorMsg: { ...prev.errorMsg, width: 'Width required'}
+            }));
+        }
+
+        //validate height
+        if (!this.isNumeric(this.state.height)) {
+            validationError = true;
+            this.setState((prev) => ({
+                ...prev,
+                errorMsg: { ...prev.errorMsg, height: 'Numbers only'}
+            }));
+        }
+
+        if (this.state.height.length === 0) {
+            validationError = true;
+            this.setState((prev) => ({
+                ...prev,
+                errorMsg: { ...prev.errorMsg, height: 'Height required'}
+            }));
+        }
+
+        //distance height
+        if (!this.isNumeric(this.state.distance)) {
+            validationError = true;
+            this.setState((prev) => ({
+                ...prev,
+                errorMsg: { ...prev.errorMsg, distance: 'Numbers only'}
+            }));
+        }
+
+        if (this.state.distance.length === 0) {
+            validationError = true;
+            this.setState((prev) => ({
+                ...prev,
+                errorMsg: { ...prev.errorMsg, distance: 'Distance required'}
+            }));
+        }
+
+        if (!validationError) {
+
+            let projectionSurface: ProjectionSurface = {
+                width: parseFloat(this.state.width),
+                height: parseFloat(this.state.height),
+                distance: parseFloat(this.state.distance)
+            }
+    
+            this.props.onClick(projectionSurface);
+        } else {
+            //do smth fancy
+        }
+
+    }
+
+    isNumeric(n: any): boolean {
+        return !isNaN(parseFloat(n)) && isFinite(n);
     }
 
     render() {
@@ -60,51 +132,10 @@ class InputComponent extends Component <InputProps, InpusStates> {
                             <Typography variant="h4">Projection Surface</Typography>
                         </Box>
                     
-                        <Box mb={4}>
-                            <Grid container justify="space-between">
-                                <Grid item>
-                                <TextField
-                                    name="width"
-                                    label="Width"
-                                    value={this.state.width}
-                                    
-                                    onChange={this.handleInputChange}
-                                    InputProps={{
-                                        endAdornment: <InputAdornment position="end">cm</InputAdornment>,
-                                    }}
-                                    variant="outlined"
-                                />
-                                </Grid>
-
-                                <Grid item>
-                                <TextField
-                                    name="height"
-                                    label="Height"
-                                    value={this.state.height}
-                                    onChange={this.handleInputChange}
-                                    InputProps={{
-                                        endAdornment: <InputAdornment position="end">cm</InputAdornment>,
-                                    }}
-                                    variant="outlined"
-                                />
-                                </Grid>
-
-                                <Grid item>
-                                <TextField
-                                    name="distance"
-                                    label="Distance"
-                                    onChange={this.handleInputChange}
-                                    value={this.state.distance}
-                                    InputProps={{
-                                        endAdornment: <InputAdornment position="end">cm</InputAdornment>,
-                                    }}
-                                    variant="outlined"
-                                />
-                                </Grid>
-
-
-                            </Grid>
-                        </Box>
+                        <InputFormComponent 
+                        {...this.state}
+                        handleInputChange={this.handleInputChange}
+                        />
 
                         <Box>
                             <Grid container justify="flex-end" spacing={4}>

@@ -7,7 +7,6 @@ class CameraTableComponent extends Component <{cameras: any[]}> {
 
     render() {
         return (
-
             <TableContainer component={Paper} aria-label="simple table">
                 <Box m={3}>
                     <Typography variant="h4">Suitable Camera Kits</Typography>
