@@ -35,6 +35,12 @@ class InputComponent extends Component <InputProps, InpusStates> {
         this.setState({[target.name]: target.value} as Pick<InpusStates, any>);
     }
 
+    handleKeyInput = (event: KeyboardEvent) => {
+        if (event.key === 'Enter') {
+            this.send();
+        }
+    }
+
     reset = () => {
         this.setState({width: ''});
         this.setState({height: ''});
@@ -135,6 +141,7 @@ class InputComponent extends Component <InputProps, InpusStates> {
                         <InputFormComponent 
                         {...this.state}
                         handleInputChange={this.handleInputChange}
+                        handleKeyboardInput={this.handleKeyInput}
                         />
 
                         <Box>

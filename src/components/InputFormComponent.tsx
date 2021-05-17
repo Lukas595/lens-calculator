@@ -15,6 +15,7 @@ class InputFormComponent extends React.Component<any> {
                         label="Width"
                         value={this.props.width}
                         
+                        onKeyDown={this.props.handleKeyboardInput}
                         onChange={this.props.handleInputChange}
                         InputProps={{
                             endAdornment: <InputAdornment position="end">cm</InputAdornment>,
@@ -30,6 +31,8 @@ class InputFormComponent extends React.Component<any> {
                         name="height"
                         label="Height"
                         value={this.props.height}
+
+                        onKeyDown={this.props.handleKeyboardInput}
                         onChange={this.props.handleInputChange}
                         InputProps={{
                             endAdornment: <InputAdornment position="end">cm</InputAdornment>,
@@ -44,6 +47,8 @@ class InputFormComponent extends React.Component<any> {
                         helperText={this.props.errorMsg.distance}
                         name="distance"
                         label="Distance"
+
+                        onKeyDown={this.props.handleKeyboardInput}
                         onChange={this.props.handleInputChange}
                         value={this.props.distance}
                         InputProps={{
