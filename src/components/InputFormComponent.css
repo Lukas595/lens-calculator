@@ -1,0 +1,19 @@
+.top-center {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.right-center {
+    position: absolute; 
+    top: 33%;
+    right: 0;
+}
+
+.center {
+    background-color: white;
+    position: absolute;
+    top: 33%;
+    left: 50%;
+}

@@ -30,7 +30,7 @@ class CameraTableComponent extends Component <{cameras: any[]}> {
                             ))}
                         </TableBody>
                     </Table>
-                : <Box color="info.main" fontWeight="bold" m={3}>No suitable cameras were found.</Box>
+                : <Box color="#0094DA" fontWeight="bold" m={3}>No suitable cameras were found.</Box>
                 }
                 
             </TableContainer>

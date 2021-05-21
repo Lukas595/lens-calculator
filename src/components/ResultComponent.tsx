@@ -18,7 +18,7 @@ class ResultComponent extends Component <ResultProps, {}> {
                     </Box>
 
                     { !this.props.horizontalFov 
-                            ? <Box color="warning.main" fontWeight="bold">Please Calculate a frustum first!</Box>
+                            ? <Box color="#B0B210" fontWeight="bold">Please Calculate a frustum first!</Box>
                             : <Grid container justify="space-between">
                                 <Grid item>
                                     <Box textAlign="center">

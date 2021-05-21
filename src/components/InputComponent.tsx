@@ -1,6 +1,8 @@
-import { Box, Button, Card, CardContent, Grid, InputAdornment, TextField, Typography } from "@material-ui/core";
+import './InputComponent.css';
+import { Box, Button, Card, CardContent, createMuiTheme, Grid, InputAdornment, TextField, ThemeProvider, Typography } from "@material-ui/core";
 import React, { Component } from "react";
 import InputFormComponent from "./InputFormComponent";
+import cck from '../images/CCKC_graphic.png';
 
 type InputProps = {
     onClick: (projectionSurface: ProjectionSurface) => void,
@@ -28,6 +30,21 @@ class InputComponent extends Component <InputProps, InpusStates> {
         distance: '',
         errorMsg: {}
     }
+
+    theme = createMuiTheme({
+        palette: {
+            primary: {
+                main: '#0094DA'
+            }
+        },
+        overrides: {
+            MuiFormControl: {
+                root: {
+                    position: "absolute"
+                }
+            }
+        }
+    });
 
     handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const target = event.target;
@@ -134,26 +151,32 @@ class InputComponent extends Component <InputProps, InpusStates> {
             <Box mb={4}>
                 <Card>
                     <CardContent>
-                        <Box mb={4}>
-                            <Typography variant="h4">Projection Surface</Typography>
-                        </Box>
-                    
-                        <InputFormComponent 
-                        {...this.state}
-                        handleInputChange={this.handleInputChange}
-                        handleKeyboardInput={this.handleKeyInput}
-                        />
 
-                        <Box>
-                            <Grid container justify="flex-end" spacing={4}>
-                                <Grid item>
-                                    <Button variant="contained" color="secondary" onClick={this.reset}>Reset</Button>
-                                </Grid>
-                                <Grid item>
-                                    <Button variant="contained" color="primary" onClick={this.send}>Calculate</Button>
-                                </Grid>
-                            </Grid>
-                        </Box>
+                        <ThemeProvider theme={this.theme}>
+
+                            <div className="container">
+                                <img src={cck} className="bgImg" />
+                                
+                                <InputFormComponent 
+                                {...this.state}
+                                handleInputChange={this.handleInputChange}
+                                handleKeyboardInput={this.handleKeyInput}
+                                />
+
+                                <div className="bottom-right">
+                                    <Grid container justify="flex-end" spacing={4}>
+                                        <Grid item>
+                                            <Button variant="outlined" color="primary" size="large" onClick={this.reset}>Reset</Button>
+                                        </Grid>
+                                        <Grid item>
+                                            <Button variant="contained" color="primary" size="large" onClick={this.send}>Calculate</Button>
+                                        </Grid>
+                                    </Grid>
+                                </div>
+                            </div>
+                        </ThemeProvider>
+
+
                     
                     </CardContent>
                 </Card>

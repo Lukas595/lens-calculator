@@ -1,14 +1,14 @@
 import { Box, Grid, InputAdornment, TextField } from '@material-ui/core';
 import React, { Component } from 'react';
+import './InputFormComponent.css';
 
 class InputFormComponent extends React.Component<any> {
 
     render() {
         return (
-            <Box mb={4}>
-                <Grid container justify="space-between">
-                    <Grid item>
+            <React.Fragment>
                     <TextField
+                        className="top-center"
                         error={!!this.props.errorMsg.width}
                         helperText={this.props.errorMsg.width}
                         name="width"
@@ -22,10 +22,9 @@ class InputFormComponent extends React.Component<any> {
                         }}
                         variant="outlined"
                     />
-                    </Grid>
 
-                    <Grid item>
                     <TextField
+                        className="right-center"
                         error={!!this.props.errorMsg.height}
                         helperText={this.props.errorMsg.height}
                         name="height"
@@ -39,10 +38,9 @@ class InputFormComponent extends React.Component<any> {
                         }}
                         variant="outlined"
                     />
-                    </Grid>
-
-                    <Grid item>
+     
                     <TextField
+                        className="center"
                         error={!!this.props.errorMsg.distance}
                         helperText={this.props.errorMsg.distance}
                         name="distance"
@@ -56,11 +54,7 @@ class InputFormComponent extends React.Component<any> {
                         }}
                         variant="outlined"
                     />
-                    </Grid>
-
-
-                </Grid>
-            </Box>
+            </React.Fragment>
         )
     }
 
