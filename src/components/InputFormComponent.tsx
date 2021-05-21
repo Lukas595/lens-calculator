@@ -1,6 +1,6 @@
-import { Box, Grid, InputAdornment, TextField } from '@material-ui/core';
-import React, { Component } from 'react';
 import './InputFormComponent.css';
+import { InputAdornment, TextField } from '@material-ui/core';
+import React from 'react';
 
 class InputFormComponent extends React.Component<any> {
 

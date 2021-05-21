@@ -1,8 +1,8 @@
 import './InputComponent.css';
-import { Box, Button, Card, CardContent, createMuiTheme, Grid, InputAdornment, TextField, ThemeProvider, Typography } from "@material-ui/core";
+import cck from '../images/CCKC_graphic.png';
+import { Box, Button, Card, CardContent, createMuiTheme, Grid, ThemeProvider } from "@material-ui/core";
 import React, { Component } from "react";
 import InputFormComponent from "./InputFormComponent";
-import cck from '../images/CCKC_graphic.png';
 
 type InputProps = {
     onClick: (projectionSurface: ProjectionSurface) => void,
@@ -155,7 +155,7 @@ class InputComponent extends Component <InputProps, InpusStates> {
                         <ThemeProvider theme={this.theme}>
 
                             <div className="container">
-                                <img src={cck} className="bgImg" />
+                                <img src={cck} alt="Projection Setup" className="bgImg" />
                                 
                                 <InputFormComponent 
                                 {...this.state}
