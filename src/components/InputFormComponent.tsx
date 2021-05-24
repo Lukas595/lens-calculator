@@ -1,63 +1,93 @@
 import './InputFormComponent.css';
-import { InputAdornment, TextField } from '@material-ui/core';
+import {  createStyles, InputAdornment, makeStyles, OutlinedInputProps, TextField, Theme } from '@material-ui/core';
 import React from 'react';
 
-class InputFormComponent extends React.Component<any> {
+const useStylesReddit = makeStyles((theme: Theme) => createStyles({
+    root: {
+        border: "1px solid #e2e2e1",
+        overflow: "hidden",
+        borderRadius: 4,
+        backgroundColor: "#fff",
+        transition: theme.transitions.create(["border-color", "box-shadow"]),
+        "&:hover": {
+          backgroundColor: "#fff",
+          borderColor: "#0094DA"
+        },
+        "&$focused": {
+          backgroundColor: "#fff",
+          borderColor: "#0094DA"
+        },
+        '&$error': {
+          borderColor: '#F24130',
+          borderWidth: 1,
+        },
+      },
+      focused: {},
+      error: {}
+      
+}));
 
-    render() {
-        return (
-            <React.Fragment>
-                    <TextField
-                        className="top-center"
-                        error={!!this.props.errorMsg.width}
-                        helperText={this.props.errorMsg.width}
-                        name="width"
-                        label="Width"
-                        value={this.props.width}
-                        
-                        onKeyDown={this.props.handleKeyboardInput}
-                        onChange={this.props.handleInputChange}
-                        InputProps={{
-                            endAdornment: <InputAdornment position="end">cm</InputAdornment>,
-                        }}
-                        variant="outlined"
-                    />
+export default function InputFormComponent(props: any) {
+  
+  const classes = useStylesReddit();
 
-                    <TextField
-                        className="right-center"
-                        error={!!this.props.errorMsg.height}
-                        helperText={this.props.errorMsg.height}
-                        name="height"
-                        label="Height"
-                        value={this.props.height}
+  return (
+      <React.Fragment>
+              <TextField
+                  className="top-center"
 
-                        onKeyDown={this.props.handleKeyboardInput}
-                        onChange={this.props.handleInputChange}
-                        InputProps={{
-                            endAdornment: <InputAdornment position="end">cm</InputAdornment>,
-                        }}
-                        variant="outlined"
-                    />
-     
-                    <TextField
-                        className="center"
-                        error={!!this.props.errorMsg.distance}
-                        helperText={this.props.errorMsg.distance}
-                        name="distance"
-                        label="Distance"
+                  error={!!props.errorMsg.width}
+                  helperText={props.errorMsg.width}
+                  name="width"
+                  label="Width"
+                  value={props.width}
+                  
+                  onKeyDown={props.handleKeyboardInput}
+                  onChange={props.handleInputChange}
+                  InputProps={{
+                      classes, disableUnderline: true,
+                      endAdornment: <InputAdornment position="end">cm</InputAdornment>,
+                  }}
+                  variant="filled"
+              />
 
-                        onKeyDown={this.props.handleKeyboardInput}
-                        onChange={this.props.handleInputChange}
-                        value={this.props.distance}
-                        InputProps={{
-                            endAdornment: <InputAdornment position="end">cm</InputAdornment>,
-                        }}
-                        variant="outlined"
-                    />
-            </React.Fragment>
+              <TextField
+                  className="right-center"
+
+                  error={!!props.errorMsg.height}
+                  helperText={props.errorMsg.height}
+                  name="height"
+                  label="Height"
+                  value={props.height}
+
+                  onKeyDown={props.handleKeyboardInput}
+                  onChange={props.handleInputChange}
+                  InputProps={{
+                      classes, disableUnderline: true,
+                      endAdornment: <InputAdornment position="end">cm</InputAdornment>,
+                  } as Partial<OutlinedInputProps>}
+                  variant="filled"
+              />
+
+              <TextField
+                  className="center"
+                  
+                  error={!!props.errorMsg.distance}
+                  helperText={props.errorMsg.distance}
+                  name="distance"
+                  label="Distance"
+                  
+                  onKeyDown={props.handleKeyboardInput}
+                  onChange={props.handleInputChange}
+                  value={props.distance}
+
+                  InputProps={{
+                      classes, disableUnderline: true,
+                      endAdornment: <InputAdornment position="end">cm</InputAdornment>,
+                  } as Partial<OutlinedInputProps>}
+                  
+                  variant="filled"
+              />
+      </React.Fragment>
         )
     }
-
-}
-
-export default InputFormComponent;

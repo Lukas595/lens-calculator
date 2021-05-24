@@ -152,6 +152,7 @@ class InputComponent extends Component <InputProps, InpusStates> {
                 <Card>
                     <CardContent>
 
+                                
                         <ThemeProvider theme={this.theme}>
 
                             <div className="container">
