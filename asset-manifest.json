@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/lens-calculator/static/css/main.fff31d5e.chunk.css",
-    "main.js": "/lens-calculator/static/js/main.261615fe.chunk.js",
-    "main.js.map": "/lens-calculator/static/js/main.261615fe.chunk.js.map",
+    "main.css": "/lens-calculator/static/css/main.dd4824ea.chunk.css",
+    "main.js": "/lens-calculator/static/js/main.8cee5cd8.chunk.js",
+    "main.js.map": "/lens-calculator/static/js/main.8cee5cd8.chunk.js.map",
     "runtime-main.js": "/lens-calculator/static/js/runtime-main.a39ac6a3.js",
     "runtime-main.js.map": "/lens-calculator/static/js/runtime-main.a39ac6a3.js.map",
     "static/js/2.5e6b623d.chunk.js": "/lens-calculator/static/js/2.5e6b623d.chunk.js",
     "static/js/2.5e6b623d.chunk.js.map": "/lens-calculator/static/js/2.5e6b623d.chunk.js.map",
     "index.html": "/lens-calculator/index.html",
-    "static/css/main.fff31d5e.chunk.css.map": "/lens-calculator/static/css/main.fff31d5e.chunk.css.map",
+    "static/css/main.dd4824ea.chunk.css.map": "/lens-calculator/static/css/main.dd4824ea.chunk.css.map",
     "static/js/2.5e6b623d.chunk.js.LICENSE.txt": "/lens-calculator/static/js/2.5e6b623d.chunk.js.LICENSE.txt",
     "static/media/CCKC_graphic.c268b384.png": "/lens-calculator/static/media/CCKC_graphic.c268b384.png"
   },
   "entrypoints": [
     "static/js/runtime-main.a39ac6a3.js",
     "static/js/2.5e6b623d.chunk.js",
-    "static/css/main.fff31d5e.chunk.css",
-    "static/js/main.261615fe.chunk.js"
+    "static/css/main.dd4824ea.chunk.css",
+    "static/js/main.8cee5cd8.chunk.js"
   ]
 }
