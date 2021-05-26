@@ -12,5 +12,6 @@
 
 img.bgImg {
     padding-top: 80px;
-    width: calc(100% - 240px);
+    width: -webkit-calc(100% - 270px);
+    width: calc(100% - 270px);
 }
